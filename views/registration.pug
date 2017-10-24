@@ -1,0 +1,23 @@
+html
+  head
+    title Registration
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+  body(style="background-color: #e7e7e7;")
+    h1(align="center") Registration Page
+    form(align="center", action="/registration", method="post")
+      p Username
+      input.text(name="username", required, style="margin-bottom: 10px;")
+      p Password
+      input.text(name="password", required, style="margin-bottom: 10px;")
+      p Role
+      select(name="role")
+        option(value="Student") Student
+        option(value="Teacher") Teacher
+        option(value="Admin") Admin
+      br
+      br
+      input.btn(type="submit", value="Register", style="background-color: #008CBA; color: white;")
+    form(align="center", action="/", method="get")
+      input.btn(type="submit", value="Back to Log in", style=" background-color: #008CBA; color: white;")
+
+    p(align="center" style="color: red") #{message}

@@ -1,0 +1,9 @@
+html
+  head
+    title Student Homepage
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+  body(style="background-color: #e7e7e7;")
+    h1(align="center") Student Homepage
+    p(align="center") Welcome #{student}!
+    form.form-horizontal(align="center", method="post", action="/logout")
+      input.btn(type="submit", value="Log Out")

@@ -1,0 +1,23 @@
+html
+  head
+    title Admin Homepage
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+  body(style="background-color: #e7e7e7;")
+    h1(align="center") Admin Homepage
+    p(align="center") Welcome #{admin}!
+    table(align="center", class="table", style="width: 90%")
+      thead
+        tr
+          th Username
+          th Password
+          th Role
+      tbody
+
+        each user in users
+          tr
+            td= user["username"]
+            td= user["password"]
+            td= user["role"]
+    br
+    form.form-horizontal(align="center", method="post", action="/logout")
+      input.btn(type="submit", value="Log Out")
