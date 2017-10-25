@@ -5,6 +5,7 @@ mongoClient.connect("mongodb://localhost:27017/challenge", function(error, db) {
   db.createCollection('login', function(error, collection) {});
 });
 
+
 var express = require('express');
 var app = express();
 var session = require('express-session');
