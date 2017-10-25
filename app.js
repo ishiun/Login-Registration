@@ -2,16 +2,7 @@ var mongoClient = require('mongodb').MongoClient;
 
 mongoClient.connect("mongodb://localhost:27017/challenge", function(error, db) {
   if (error) { return console.dir(error); }///
-    db.createCollection('login', function(error, collection) {});
-//  var collection = db.collection('login');
-//  var login = {username2:"username", password:"password", role:"student"};
-//  collection.insertOne(login, function(error, result) {
-//  });
-
-  //collection.findOne({"username2":"username", "role":"student"}, function(err, result) {
-//  if (err) throw err;
-//  console.log(result);
-//  });
+  db.createCollection('login', function(error, collection) {});
 });
 
 var express = require('express');
@@ -30,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended:true }));
 
 app.set('view-engine', 'pug');
 
-//
+
 app.get('/', function(request, response) {
   response.render('login.pug', {
     message: ""
@@ -83,6 +74,10 @@ app.get('/adminHomepage', function(request, response) {
   } else {
       response.redirect('/loginError');
     }
+})
+
+app.get('/loginError', function(request, response) {
+  response.sendFile(__dirname + "/views/" + "error.html");
 })
 
 app.post('/', function(request, response) {
@@ -167,8 +162,4 @@ app.post('/registration', function(request, response) {
 app.post('/logout', function(request, response) {
   request.session.destroy(function(err){})
   response.redirect('/');
-})
-
-app.get('/loginError', function(request, response) {
-  response.sendFile(__dirname + "/views/" + "error.html");
 })
